@@ -16,7 +16,6 @@
       <ul>
         <li><a href="#home">Inicio</a></li>
         <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#nosotros">Quiénes somos</a></li>
         <li><a href="#cotiza">Cotiza</a></li>
         <li><a href="#contacto">Contacto</a></li>
       </ul>
@@ -65,10 +64,12 @@
     </div>
   </section>
   
-  <section id="servicios">
-    <h2>Servicios</h2>
+ <section id="servicios">
+  <h4>Servicios</h4>
+</section>
 
-    <div class="servicio">
+  <div class="bloque-servicio marketing">
+    <div class="contenido-servicio">
       <h3>Marketing</h3>
       <ul>
         <li>Estudio de Mercado</li>
@@ -81,8 +82,10 @@
         <li>Sitio Web</li>
       </ul>
     </div>
+  </div>
 
-    <div class="servicio">
+  <div class="bloque-servicio finanzas">
+    <div class="contenido-servicio">
       <h3>Finanzas</h3>
       <ul>
         <li>Asesoría Financiera Mensual</li>
@@ -94,8 +97,10 @@
         <li>Presupuestos y Proyecciones</li>
       </ul>
     </div>
+  </div>
 
-    <div class="servicio">
+  <div class="bloque-servicio contabilidad">
+    <div class="contenido-servicio">
       <h3>Contabilidad</h3>
       <ul>
         <li>Libro de Compras y Ventas</li>
@@ -107,7 +112,8 @@
         <li>Facturación y Emisión de Boletas</li>
       </ul>
     </div>
-  </section>
+  </div>
+
 
   <section id="nosotros">
     <h2>¿Quiénes somos?</h2>
@@ -130,14 +136,30 @@
 
   <section id="contacto">
     <h2>Contacto</h2>
-    <p>Dirección: 123 Anywhere St., Any City</p>
-    <p>Email: hello@reallygreatsite.com</p>
+    <p>Email: Contacto@ssentra.cl</p>
     <p>Teléfono: (123) 456 7890</p>
   </section>
 
   <footer>
     <p>&copy; 2025 SSentra. Todos los derechos reservados.</p>
   </footer>
+
+
+  <script>
+    let lastScrollY = window.scrollY;
+    const header = document.querySelector('header');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > lastScrollY && window.scrollY > 50) {
+        // Scroll hacia abajo y no estamos en la parte superior
+        header.classList.add('header-hidden');
+      } else {
+        // Scroll hacia arriba
+        header.classList.remove('header-hidden');
+      }
+      lastScrollY = window.scrollY;
+    });
+  </script>
 
 </body>
 </html>

@@ -15,10 +15,21 @@ body {
 }
 
 header {
-  background-color: #0077cc;
+  background-color: rgba(92, 114, 129, 0.7); /* Azul con 70% de opacidad */
   color: white;
   padding: 20px 0;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  width: 100%;
+
+  transition: transform 0.3s ease-in-out;
+  transform: translateY(0);
+}
+
+.header-hidden {
+  transform: translateY(-100%); /* Mueve el header hacia arriba, fuera de la vista */
 }
 
 .logo-link {
@@ -69,7 +80,7 @@ nav ul li a:hover {
   text-decoration: underline;
 }
 
-section:not(#home):not(#compromiso) {
+section:not(#home):not(#compromiso):not(#servicios) {
   max-width: 1100px;
   margin: 50px auto;
   padding: 0 20px;
@@ -85,6 +96,12 @@ h3 {
   font-size: 22px;
   margin-top: 20px;
   margin-bottom: 10px;
+}
+
+h4 {
+  font-size: 30px;
+  color: white;
+
 }
 
 .servicio {
@@ -264,3 +281,71 @@ footer {
   }
 }
 
+.bloque-servicio {
+  position: relative;
+  color: white;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+  padding: 120px 20px;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* para que ::before no se salga */
+}
+
+.bloque-servicio::before {
+  content: "";
+  position: absolute;
+  inset: 0; /* top:0; right:0; bottom:0; left:0; */
+  background-color: rgba(0, 0, 0, 0.5); /* negro con 50% de opacidad */
+  z-index: 0;
+}
+
+.bloque-servicio .contenido-servicio {
+  position: relative; /* para que esté sobre el overlay */
+  z-index: 1;
+  max-width: 900px;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 40px;
+  border-radius: 10px;
+  backdrop-filter: blur(4px);
+  text-align: center;
+}
+
+.bloque-servicio h3 {
+  font-size: 32px;
+  color: #00c3ff;
+  margin-bottom: 20px;
+}
+
+.bloque-servicio ul {
+  list-style: disc;
+  padding-left: 20px;
+  text-align: left;
+}
+
+.bloque-servicio li {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.bloque-servicio.marketing {
+  background-image: url('marketing.jpg');
+}
+
+.bloque-servicio.finanzas {
+  background-image: url('finanzas.jpg');
+}
+
+.bloque-servicio.contabilidad {
+  background-image: url('contabilidad.jpg');
+}
+
+#servicios {
+  text-align: center;
+  padding: 80px 20px 40px;
+  background-color: #0077cc;
+}
